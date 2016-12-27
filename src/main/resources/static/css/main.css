@@ -1,0 +1,26 @@
+html{height: 100%}
+html,body{margin:0;padding:0}
+body{font: 76% arial,sans-serif;text-align:center; background-color: whitesmoke; min-height: 100%; position: relative;margin: 0; padding-bottom: 6rem}
+p{margin:0 10px 10px}
+a{padding:5px; text-decoration:none; color: #5b2605;}
+a::before{content: ">>> "}
+div#header{background-color:#F3F2ED; text-align: center}
+div#header h1{height:80px;line-height:80px;margin:0;padding-left:10px;}
+div#container{text-align:left;width: 94%;}
+div#content p{line-height:1.4;}
+div#navigation{background:#F6F0E0;}
+div#navigation ul{margin:15px 0; padding:0; list-style-type:none;}
+div#navigation li{margin-bottom:5px;}
+div#extra{background:#CCC8B3;}
+div#footer{background:#BFBD93;}
+div#footer p{margin:0;padding:5px 10px}
+div#container{width:700px;margin:0 auto; background-color: white;}
+div#wrapper{float:left;width:100%; background-color: white;}
+div#content{margin: 0 150px; padding: 20px;}
+div#navigation{float:left;width:150px;margin-left:-700px}
+div#extra{float:left;width:150px;margin-left:-150px; position: absolute; bottom: 0}
+div#footer{font-family: Verdana ;clear:left;width:100%;}
+.returnToIndex{margin:0;padding-left:10px;}
+#tide{margin-top: 50px}
+#notfound{margin-right: auto; margin-left: auto; width: 75%; height: 75%}
+#403{margin-right: auto; margin-left: auto; width: 20%; height: 20%}

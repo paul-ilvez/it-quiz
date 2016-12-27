@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>End of test</title>
+    <link rel="stylesheet" href="/../css/main.css"/>
+</head>
+<body>
+
+<div id="container">
+    <div id="header"><h1>End of test</h1>
+        <a href="/index" class="returnToIndex">Return to index</a>
+    </div>
+
+    <div id="wrapper">
+        <div id="content">
+
+            <h2>You have completed the test!</h2>
+
+            <ul th:each="question,iterStat : ${testInput.questions}">
+                <li><span th:text="${question.content}"/><br/>
+                    <b>Correct answer:</b> <span th:text="${question.correctAnswer.content}"/>
+                    <b>Your answer:</b>
+
+                    <span th:if="${question.isCorrectlyAnswered()}" style="color: green">
+            <span th:text="${question.userAnswer.content}"/>
+        </span>
+
+                    <span th:unless="${question.isCorrectlyAnswered()}" style="color: red">
+            <span th:text="${question.userAnswer.content}"/>
+        </span>
+
+                </li>
+            </ul>
+
+
+            <a href="/questions/retry">Retry test</a><br/>
+
+
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>You have correctly answered out <b th:text="${testInput.correctAnswers}"/> of <b
+                th:text="${testInput.totalQuestionNumber}"/> questions.</p>
+    </div>
+
+</div>
+</body>
+</html>

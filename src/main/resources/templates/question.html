@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Start</title>
+    <link rel="stylesheet" href="/../css/main.css"/>
+    <script src="/../js/clock.js"></script>
+</head>
+<body onload="startTime()">
+<div id="container">
+    <div id="header"><h1>Java Basics Test</h1>
+        <a href="/index" class="returnToIndex">Return to index</a>
+    </div>
+
+
+    <div id="wrapper">
+        <div id="content">
+            <strong th:text="${testInput.currentQuestion.content}">What do we talk about when we talk about
+                love?</strong>
+            <form action="questions/next.html" th:action="@{/questions/next}" method="post"
+                  style="margin-bottom: 100px">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                <div class="questionBox" th:each="answer,iterStat : ${testInput.currentQuestion.answers}">
+                    <label>
+                        <input type="radio" name="userAnswer" value="Answer 1"
+                               th:value="${answer.content}"/>
+                        <span th:text="${answer.content}">Ololo</span>
+                    </label>
+                    <br/>
+                </div>
+
+                <input type="submit" value="Submit answer"/>
+            </form>
+
+
+            <p id="time">Time: <span id="txt"></span></p>
+        </div>
+    </div>
+
+    <div id="navigation">
+        <form th:action="@{/questions/goto}" action="/questions/goto?${_csrf.parameterName}=${_csrf.token}"
+              method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <label for="jumpToPage">Go to question:</label><br/>
+            <select name="jumpToPage" id="jumpToPage">
+
+                <div th:each="question,iterStat : ${testInput.questions}">
+                    <option th:value="${iterStat.count}"><span th:text="${iterStat.count}"/></option>
+                </div>
+                <option value="999">End test</option>
+            </select><br/>
+            <input type="submit" value="Go to"/>
+        </form>
+
+
+
+    </div>
+
+    <div id="footer">
+        <span th:text="'Question ' + ${testInput.currentNumber+1} + ' out of ' + ${testInput.totalQuestionNumber}">Question
+            n out of N</span>
+    </div>
+</div>
+
+</body>
+</html>
